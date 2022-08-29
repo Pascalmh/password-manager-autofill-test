@@ -31,7 +31,22 @@
       var passwordInput = form.querySelector("input[type=password]");
 
       passwordInput.addEventListener("input", (e) => {
-        pre.innerHTML = JSON.stringify(e);
+        console.log(e);
+        
+        pre.innerHTML = "e.target.value: " +
+          e.target.value +
+          "<br>" +
+          "e.inputType: " +
+          e.inputType +
+          "<br>" +
+          "e.data: " +
+          e.data +
+          "<br>" +
+          "e.dataTransfer: " +
+          e.dataTransfer +
+          "<br>" +
+          "e.isComposing: " +
+          e.isComposing;
       });
     </script>
   </body>
