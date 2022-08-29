@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password-manager-autofill-test</title>
+  </head>
+  <body>
+    <script>
+      var pre = document.querySelector("pre");
+
+      var form = document.querySelector("form");
+
+      var emailInput = form.querySelector("input[type=email]");
+      var passwordInput = form.querySelector("input[type=password]");
+
+      passwordInput.addEventListener("input", (e) => {
+        pre.innerHTML = JSON.stringify(e);
+      });
+    </script>
+    
+    <form>
+      <label>
+        E-Mail-Adresse:
+        <input type=text name=username>
+      </label>
+
+      <label>
+        Passwort:
+        <input type=password name=password>
+      </label>
+
+      <button type=submit>Absenden</button>
+    </form>
+
+    <pre id=event></pre>
+  </body>
+</html>
