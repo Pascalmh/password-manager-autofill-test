@@ -20,10 +20,12 @@
       <button type=submit>Absenden</button>
     </form>
 
-    <pre id=event></pre>
+    <pre id=changeEvent></pre>
+    <pre id=animationEvent></pre>
     
     <script>
-      var pre = document.querySelector("pre");
+      var preChangeEvent = document.querySelector("pre#changeEvent");
+      var preAnimationEvent = document.querySelector("pre#animationEvent");
 
       var form = document.querySelector("form");
 
@@ -31,9 +33,9 @@
       var passwordInput = form.querySelector("input[type=password]");
 
       passwordInput.addEventListener("input", (e) => {
-        console.log(e);
+        console.log('changeEvent', e);
         
-        pre.innerHTML = "e.target.value: " +
+        preChangeEvent.innerHTML = "e.target.value: " +
           e.target.value +
           "<br>" +
           "e.inputType: " +
@@ -48,6 +50,11 @@
           "e.isComposing: " +
           e.isComposing;
       });
+      
+      document.addEventListener('animationstart', (e) => {
+        console.log('animationEvent', e);
+        preAnimationEvent.innerHTML = JSON.stringify(e);
+    }, true);
     </script>
   </body>
 </html>
